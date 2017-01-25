@@ -1,0 +1,61 @@
+ <body class="login">
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <form name="form">
+              <h1>Registration</h1>
+              
+              <!-- Form  -->
+              <label class="item item-input">
+              <input type="text" placeholder="User Name" class="form-control" name="username" id="username" ng-model="userData.userName" required="required">
+              </label>
+              <div class="form-error required">
+                 <div class="form-validation-message" ng-message="required" ng-show="form.username.$error.required && form.username.$dirty">This field is required</div>
+              </div>
+            <label class="item item-input">
+              <input type="email" placeholder="Email Id" class="form-control" name="email" id="email" ng-model="userData.emailId" required="required">
+              </label>
+              <div class="form-error required">
+                 <div class="form-validation-message" ng-message="required" ng-show="form.email.$error.required && form.email.$dirty">This field is required</div>
+                 <div class="form-validation-message" ng-message="email" ng-show="form.email.$error.email && form.email.$dirty">Not valid email!</div>
+              </div>
+            
+            <label class="item item-input">
+              <input type="password" placeholder="Password" class="form-control" name="password" id="password" ng-minlength="6" ng-model="userData.password" required="required">
+            </label>
+            <div class="form-error required">
+              <div class="form-validation-message" ng-message="required" ng-show="form.password.$error.required && form.password.$dirty">This field is required</div>
+              <div class="form-validation-message" ng-show="form.password.$error.minlength">Min 6 characters.</div>
+
+            </div>
+            <label class="item item-input">
+              <input type="password" placeholder="Confirm Password" class="form-control" name="confirmPassword" id="confirmPassword" ng-model="userData.confirmPassword" required="required">
+            </label>
+            <div class="form-error required">
+              <div class="form-validation-message" ng-message="required" ng-show="form.confirmPassword.$error.required && form.confirmPassword.$dirty">This field is required</div>
+              <div class="form-validation-message" ng-show="userData.password !== userData.confirmPassword">Password did not match</div>
+            </div>
+
+              <!-- End form -->
+              <div class="button-bar twobuttons row">
+                <button ng-disabled="!form.$valid || userData.password !== userData.confirmPassword"  ng-click="registerUser(userData)" class="btn btn-success submit">
+                Submit
+              </button>
+              </div>
+
+
+                <div class="clearfix"></div>
+                <br />
+
+               
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
