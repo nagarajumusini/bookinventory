@@ -10,11 +10,20 @@ angular.module('myApp.index', ['ngRoute'])
 }])
 
 
-.controller('IndexCtrl', ['$scope','$rootScope', 'MetaService', function($scope, $rootScope, MetaService) {
+.controller('IndexCtrl', ['$scope','$rootScope', 'MetaService','USERSERVICE','$location', function($scope, $rootScope, MetaService, USERSERVICE, $location) {
 	// Configure Meta Tags and Title
 	$scope.templates =
 	      [{ name: 'sidemenu.html', url: 'sidemenu/sidemenu.html'}];
-	    $scope.template = $scope.templates[0];
+	$scope.template = $scope.templates[0];
 	$rootScope.metaservice = MetaService;
-    $rootScope.metaservice.set("view2 | angular-seed","desc","blah blah");
+    $rootScope.metaservice.set("Dashboard | angular-seed","desc","blah blah");
+
+
+
+
+    $rootScope.UserData = USERSERVICE.getUser();
+    console.log(typeof $rootScope.UserData.userName);
+  	if($rootScope.UserData.userName == undefined){
+  		$location.path('/login');
+  	}
 }]);

@@ -9,7 +9,7 @@ angular.module('myApp.registration', ['ngRoute'])
   });
 }])
 
-.controller('RegistrationCtrl', ['$scope','$rootScope', 'MetaService','$http', function($scope, $rootScope, MetaService, $http) {
+.controller('RegistrationCtrl', ['$scope','$rootScope', 'MetaService','$http','$location', function($scope, $rootScope, MetaService, $http, $location) {
 	// Configure Meta Tags and Title
 	$rootScope.metaservice = MetaService;
     $rootScope.metaservice.set("Registration | angular-seed","desc","");
@@ -27,6 +27,7 @@ angular.module('myApp.registration', ['ngRoute'])
 		        if (result.data.status) {
 					$scope.loading = false;
 					alert('You are registered successfully.');
+					$location.path('/login');
 		        } else {
 			        $scope.loading = false;
 			        alert(result.data.message);

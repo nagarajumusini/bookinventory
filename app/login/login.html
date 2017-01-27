@@ -6,16 +6,26 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
+            <form name="form">
               <h1>Login Form</h1>
+                <label class="item item-input">
+                  <input type="email" placeholder="Email Id" name="email" id="email" ng-model="userData.emailId" required="required">
+                </label>
+                 <div class="form-error required">
+                  <div class="form-validation-message" ng-message="required" ng-show="form.email.$error.required && form.email.$dirty">This field is required</div>
+                  <div class="form-validation-message" ng-message="email" ng-show="form.email.$error.email && form.email.$dirty">Not valid email!</div>
+                </div>
+              
+                <label class="item item-input">
+                  <input type="password" placeholder="Password" name="password" id="password" ng-model="userData.password" required="required">
+                </label>
+                <div class="form-error required">
+                    <div class="form-validation-message" ng-message="required" ng-show="form.password.$error.required && form.password.$dirty">This field is required</div>
+                 </div>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
-              </div>
-              <div>
-                <a class="btn btn-success submit" href="index.html">Log in</a>
+                <button class="btn btn-success submit" ng-disabled="!form.$valid"  ng-click="loginUser(userData)">
+                Login
+              </button>
                 <a class="reset_pass" href="#">Lost your password?</a>
               </div>
 
