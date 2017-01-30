@@ -15,39 +15,37 @@
                   </div>
                   <div class="x_content">
 
-                    <form class="form-horizontal form-label-left" novalidate>
+                   
 
-                                           
 
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isbn">Enter ISBN <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="isbn" class="form-control col-md-7 col-xs-12"  name="isbn"  type="text">
-                        </div>
-                      </div>
-					  <div class="form-group">
-					  <div class="col-md-6 col-md-offset-3">
 
-					  <span class="required">(Or)</span>
-					  </div>
-					  </div>
-					  <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Enter Title <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="title" class="form-control col-md-7 col-xs-12"  name="title" type="text">
-                        </div>
+                <form name="form" style="clear:both;" >
+                    
+                <div class="list form-floating">
+                  
+                  <label class="item item-input item-floating-label">
+                    <span class="input-label">Enter ISBN</span>
+                    <input type="text" class="form-control col-md-7 col-xs-12" ng-model="searchData.ISBN" ng-keyup="disableButton(searchData.ISBN)" placeholder="Enter ISBN" ng-readonly="disableISBN">
+                  </label>
+                  <p class="text-center bror">OR</p>
+                  <label class="item item-input item-floating-label">
+                    <span class="input-label">Enter Title</span>
+                    <input type="text" class="form-control col-md-7 col-xs-12"  ng-model="searchData.title" ng-keyup="disableButton2(searchData.title)" placeholder="Enter Title" ng-readonly="disableTitle">
+                  </label>
+                    
+                    <div class="button-bar twobuttons row">
+                     <button type="submit" class="btn btn-success" ng-if="searchbyISBN" ng-disabled="searchData.ISBN == '' && searchData.title == ''" ng-click="searchByProp('ISBN', searchData.ISBN)">
+                        Search By ISBN
+                      </button>
+                      
+                      <button type="submit" class="btn btn-success" ng-if="!searchbyISBN"  ng-disabled="searchData.ISBN == '' && searchData.title == ''" ng-click="searchByProp('title', searchData.title)">
+                          Search By Title
+                        </button>
+
                       </div>
-					  
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Cancel</button>
-                          <p id="send" type="submit" class="btn btn-success"><a href="#!/list">Search</a></p>
-                        </div>
-                      </div>
-                    </form>
+                  </div>  
+           </form>
+
                   </div>
                 </div>
               </div>

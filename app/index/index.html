@@ -19,89 +19,82 @@
                   </div>
                   <div class="x_content">
 
-                    <form class="form-horizontal form-label-left" novalidate>
+                    <form name="form" style="clear:both;" >
+                    
+                      <div class="list form-floating">
+                       <label class="item item-input item-floating-label">
+                          <span class="input-label">ISBN13<em>*</em></span>
+                          <input type="text" class="form-control col-md-7 col-xs-12" placeholder="ISBN13*" ng-model='bookcheckin.ISBN13' name="ISBN13" id="ISBN13" required="required">
+                        </label>
+                         <div class="form-error required">
 
-                                           
+                           <div class="form-validation-message" ng-message="required" ng-show="form.ISBN13.$error.required && form.ISBN13.$dirty">This field is required</div>
+                      
+                        </div>
 
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isbn">ISBN <span class="required">*</span>
+                        <label class="item item-input item-floating-label">
+                          <span class="input-label">ISBN10<em>*</em></span>
+                          <input type="text" class="form-control col-md-7 col-xs-12" placeholder="ISBN10*" ng-model='bookcheckin.ISBN10' name="ISBN10" id="ISBN10" required="required">
                         </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="isbn" class="form-control col-md-7 col-xs-12"  name="isbn"  required="required" type="text">
-                        </div>
-                      </div>
-					  <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Title <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="title" class="form-control col-md-7 col-xs-12"  name="title"  required="required" type="text">
-                        </div>
-                      </div>
-					  <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="publisher">Publisher <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="Publisher" class="form-control col-md-7 col-xs-12"  name="Publisher"  required="required" type="text">
-                        </div>
-                      </div>
-					  <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="quantity">Quantity <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="quantity" class="form-control col-md-7 col-xs-12"  name="quantity"  required="required" type="text">
-                        </div>
-                      </div>
-					  <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price">Price <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="price" class="form-control col-md-7 col-xs-12"  name="price"  required="required" type="text">
-                        </div>
-                      </div>
-					  <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="binding">Binding <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="binding" class="form-control col-md-7 col-xs-12"  name="binding"  required="required" type="text">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="location">Bin Location <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="location" class="form-control col-md-7 col-xs-12"  name="location"  required="required" type="text">
-                        </div>
-                      </div>
-					  <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="spot">Spot <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="spot" class="form-control col-md-7 col-xs-12"  name="spot"  required="required" type="text">
-                        </div>
-                      </div>
-					  <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="level">Reading Level <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="level" class="form-control col-md-7 col-xs-12"  name="level"  required="required" type="text">
-                        </div>
-                      </div>
+                         <div class="form-error required">
+
+                           <div class="form-validation-message" ng-message="required" ng-show="form.ISBN10.$error.required && form.ISBN10.$dirty">This field is required</div>
                       
-                      
-                      
-                      
-                      
-                      
-                      
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Cancel</button>
-						  
-                          <button id="send" type="submit" class="btn btn-success">Submit</button>
                         </div>
-                      </div>
-                    </form>
+
+                        <label class="item item-input item-floating-label">
+                          <span class="input-label">Title<em>*</em></span>
+                          <input type="text" class="form-control col-md-7 col-xs-12" placeholder="Title*" ng-model='bookcheckin.title' name="title" id="title" required="required" ng-click="getISBNdetails(bookcheckin.ISBNN)">
+                        </label>
+                        <div class="form-error required">
+                           <div class="form-validation-message" ng-message="required" ng-show="form.title.$error.required && form.title.$dirty">This field is required</div>
+                         </div>
+                        <label class="item item-input item-floating-label">
+                          <span class="input-label">Publisher<em>*</em></span>
+                          <input type="text" class="form-control col-md-7 col-xs-12" placeholder="Publisher*" ng-model='bookcheckin.publisher' name="publisher" id="publisher" required="required">
+                        </label>
+                        <div class="form-error required">
+                           <div class="form-validation-message" ng-message="required" ng-show="form.publisher.$error.required && form.publisher.$dirty">This field is required</div>
+                         </div>
+
+                        <label class="item item-input item-floating-label">
+                          <span class="input-label">Quantity<em>*</em></span>
+                          <input type="number" class="form-control col-md-7 col-xs-12" placeholder="Quantity*" ng-model='bookcheckin.quantity' name="quantity" id="quantity" ng-pattern="/^[0-9\s]*$/" required="required">
+                        </label>
+                            <div class="form-error required">
+                          <div class="form-validation-message" ng-message="pattern" ng-show="form.quantity.$error.pattern && form.quantity.$dirty">Allow only digits</div> 
+                        </div>
+                        <label class="item item-input item-floating-label">
+                          <span class="input-label">Price<em>*</em></span>
+                          <input type="text" class="form-control col-md-7 col-xs-12" placeholder="Price*" ng-model='bookcheckin.price' currency name="price" id="price" ng-pattern="/^[0-9.\s]*$/" required="required">
+                        </label>
+                        <div class="form-error required">
+                           <div class="form-validation-message" ng-message="required" ng-show="form.price.$error.required && form.price.$dirty">This field is required</div>
+                         </div>
+                         <div class="form-error required">
+                          <div class="form-validation-message" ng-message="pattern" ng-show="form.price.$error.pattern && form.price.$dirty">Allow only digits</div> 
+                        </div>
+                         
+                        <label class="item item-input item-floating-label">
+                          <span class="input-label">Bin Location</span>
+                          <input type="text" placeholder="Bin Location" ng-model='bookcheckin.binLocation'>
+                        </label>
+                        <br/>
+                        <label class="item item-input item-floating-label">
+                          <span class="input-label">Reading Level</span>
+                          <input type="text" placeholder="Reading Level" ng-model='bookcheckin.readinglevel'>
+                        </label> 
+                          
+                          <div class="button-bar twobuttons row">
+                              <a class="btn btn-primary" href="#/index">Cancel</a>
+                              <button ng-disabled="!form.$valid || isbnvalidation.error || isbnvalidation.lengtherror"  ng-click="insertBook(bookcheckin)" class="btn btn-success">
+                              Submit
+                            </button>
+
+                            </div>
+                        </div>  
+                 </form>
+                      
                   </div>
                 </div>
               </div>
@@ -111,36 +104,5 @@
 
        
       
- <!-- validator -->
-    <script>
-      // initialize the validator function
-      validator.message.date = 'not a real date';
-
-      // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
-      $('form')
-        .on('blur', 'input[required], input.optional, select.required', validator.checkField)
-        .on('change', 'select.required', validator.checkField)
-        .on('keypress', 'input[required][pattern]', validator.keypress);
-
-      $('.multi.required').on('keyup blur', 'input', function() {
-        validator.checkField.apply($(this).siblings().last()[0]);
-      });
-
-      $('form').submit(function(e) {
-        e.preventDefault();
-        var submit = true;
-
-        // evaluate the form using generic validaing
-        if (!validator.checkAll($(this))) {
-          submit = false;
-        }
-
-        if (submit)
-          this.submit();
-
-        return false;
-      });
-    </script>
-    <!-- /validator -->
 
   

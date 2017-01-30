@@ -27,6 +27,7 @@
             <label class="item item-input">
               <input type="password" placeholder="Password" class="form-control" name="password" id="password" ng-minlength="6" ng-model="userData.password" required="required">
             </label>
+
             <div class="form-error required">
               <div class="form-validation-message" ng-message="required" ng-show="form.password.$error.required && form.password.$dirty">This field is required</div>
               <div class="form-validation-message" ng-show="form.password.$error.minlength">Min 6 characters.</div>
